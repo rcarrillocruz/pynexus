@@ -10,3 +10,8 @@ class ApiClient:
         r = requests.get(self.host+'/nexus/service/local/repositories', headers={'Accept': 'application/json'})
 
         return r
+
+    def get_status(self):
+        r = requests.get(self.host+'/nexus/service/local/status', headers={'Accept': 'application/json'})
+        
+        return r
