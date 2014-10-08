@@ -82,3 +82,8 @@ class ApiClient:
         r = requests.get(self.uri + 'artifact/maven', headers={'Accept': 'application/json'}, params=params)
 
         return r
+
+    def rebuild_group_metadata(self, group_id, path=''):
+        r = requests.delete(self.uri + 'metadata/repo_groups/' + group_id + '/content/' + path, auth=(self.username, self.password), headers={'Accept': 'application/json'})
+
+        return r
