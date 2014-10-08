@@ -51,3 +51,7 @@ class ApiClient:
 
         return r
 
+    def get_privileges(self):
+        r = requests.get(self.uri + 'privileges', auth=(self.username, self.password), headers={'Accept': 'application/json'})
+
+        return r
