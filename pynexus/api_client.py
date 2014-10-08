@@ -21,6 +21,12 @@ class ApiClient:
         
         return r
 
+    # TODO this will probably haunt me at some point, not sure if Nexux expects boolean values as strings or not
+    def get_repository_statuses(self, forceCheck=False):
+        r = requests.get(self.uri + 'repository_statuses', headers={'Accept': 'application/json'}, params={'forceCheck': forceCheck})
+
+        return r
+
     def get_users(self):
         r = requests.get(self.uri + 'users', auth=(self.username, self.password), headers={'Accept': 'application/json'})
 
