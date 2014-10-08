@@ -45,3 +45,9 @@ class ApiClient:
         r = requests.get(self.uri + 'repo_groups', headers={'Accept': 'application/json'})
 
         return r
+
+    def get_repo_group(self, group_id):
+        r = requests.get(self.uri + 'repo_groups' + '/' + group_id, headers={'Accept': 'application/json'})
+
+        return r
+
