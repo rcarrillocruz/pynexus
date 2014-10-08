@@ -40,3 +40,8 @@ class ApiClient:
         r = requests.get(self.uri + 'roles' + '/' + role_id, auth=(self.username, self.password), headers={'Accept': 'application/json'})
 
         return r
+
+    def get_repo_groups(self):
+        r = requests.get(self.uri + 'repo_groups', headers={'Accept': 'application/json'})
+
+        return r
