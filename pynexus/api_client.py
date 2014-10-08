@@ -87,3 +87,8 @@ class ApiClient:
         r = requests.delete(self.uri + 'metadata/repo_groups/' + group_id + '/content/' + path, auth=(self.username, self.password), headers={'Accept': 'application/json'})
 
         return r
+
+    def rebuild_repo_metadata(self, repository_id, path=''):
+        r = requests.delete(self.uri + 'metadata/repositories/' + repository_id + '/content/' + path, auth=(self.username, self.password), headers={'Accept': 'application/json'})
+
+        return r
