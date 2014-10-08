@@ -15,3 +15,8 @@ class ApiClient:
         r = requests.get(self.uri + 'status', headers={'Accept': 'application/json'})
         
         return r
+
+    def get_users(self):
+        r = requests.get(self.uri + 'users', auth=(self.username, self.password), headers={'Accept': 'application/json'})
+
+        return r
