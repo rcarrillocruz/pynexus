@@ -11,6 +11,11 @@ class ApiClient:
 
         return r
 
+    def get_user_repositories(self):
+        r = requests.get(self.uri + 'repositories', headers={'Accept': 'application/json'})
+
+        return r
+
     def get_status(self):
         r = requests.get(self.uri + 'status', headers={'Accept': 'application/json'})
         
