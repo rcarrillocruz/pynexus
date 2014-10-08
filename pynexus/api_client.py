@@ -76,3 +76,9 @@ class ApiClient:
         r = requests.get(self.uri + 'schedules' + '/' + str(schedule_id), auth=(self.username, self.password), headers={'Accept': 'application/json'})
 
         return r
+
+    def get_artifact_pom(self, group_id, artifact_id, version, repository):
+        params = {'g': group_id, 'a': artifact_id, 'v': version, 'r': repository}
+        r = requests.get(self.uri + 'artifact/maven', headers={'Accept': 'application/json'}, params=params)
+
+        return r
