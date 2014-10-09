@@ -1,4 +1,5 @@
 import requests
+import json
 
 class ApiClient:
     def __init__(self, host, username, password):
@@ -34,6 +35,15 @@ class ApiClient:
 
     def get_user(self, user_id):
         r = requests.get(self.uri + 'users' + '/' + user_id, auth=(self.username, self.password), headers={'Accept': 'application/json'})
+
+        return r
+
+    def create_user(self, user_id, first_name, last_name, email, status, password, roles):
+        payload = {'data': {'userId': user_id, 'firstName': first_name, 'lastName': last_name,
+                            'email': email, 'status': 'active', 'password': password, 'roles': roles}} 
+
+        r = requests.post(self.uri + 'users', auth=(self.username, self.password), headers={'Accept': 'application/json', 'Content-Type': 'application/json'}, 
+                          data=json.dumps(payload))
 
         return r
 
