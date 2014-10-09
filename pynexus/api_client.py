@@ -17,6 +17,22 @@ class ApiClient:
 
         return r
 
+    def create_hosted_repo(self, repo_id, repo_name, provider, storage_folder, 
+                           deploy_policy='ALLOW_WRITE_ONCE', browseable=True, indexable=True, 
+                           repo_policy='RELEASE', url_visible=True, not_found_cache_ttl=1440):
+
+        payload = {'data': {'repoType': 'hosted', 'id': repo_id, 'name': repo_name, 'provider': provider, 
+                            'repoPolicy': repo_policy, 'overrideLocalStorageUrl': storage_folder,
+                            'writePolicy': deploy_policy, 'browseable': browseable,
+                            'indexable': indexable, 'exposed': url_visible, 'notFoundCacheTTL': not_found_cache_ttl,
+                            'providerRole':'org.sonatype.nexus.proxy.repository.Repository',
+                            'downloadRemoteIndexes': False,'checksumPolicy': 'IGNORE'}}
+        
+        r = requests.post(self.uri + 'repositories', auth=(self.username, self.password), headers={'Accept': 'application/json', 'Content-Type': 'application/json'}, 
+                          data=json.dumps(payload))
+
+        return r 
+
     def get_status(self):
         r = requests.get(self.uri + 'status', headers={'Accept': 'application/json'})
         
