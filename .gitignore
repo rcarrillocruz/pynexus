@@ -1,1 +1,4 @@
 *.pyc
+.testrepository/
+*.swp
+pynexus.egg-info/
