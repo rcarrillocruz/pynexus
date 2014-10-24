@@ -2,3 +2,4 @@
 .testrepository/
 *.swp
 pynexus.egg-info/
+.coverage
