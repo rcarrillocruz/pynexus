@@ -1,3 +1,6 @@
+import os, sys
+sys.path.append(os.path.abspath('..'))
+
 import unittest
 from mock import patch
 from pynexus import api_client
@@ -21,3 +24,8 @@ class NexusTest(unittest.TestCase):
         result = n.get_users()
         self.assertEqual(result, mock_output)
 
+def main():
+    unittest.main()
+
+if __name__ == '__main__':
+    main()
