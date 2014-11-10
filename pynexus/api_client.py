@@ -37,7 +37,7 @@ class ApiClient:
         return r 
 
     def get_status(self):
-        r = requests.get(self.uri + 'status', headers={'Accept': 'application/json'})
+        r = self.__get('status')
         
         return r
 
