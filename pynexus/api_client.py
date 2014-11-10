@@ -16,7 +16,7 @@ class ApiClient:
         return self.__get('all_repositories')
 
     def get_user_repositories(self):
-        r = requests.get(self.uri + 'repositories', headers={'Accept': 'application/json'})
+        r = self.__get('repositories')
 
         return r
 
