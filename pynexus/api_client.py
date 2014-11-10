@@ -53,7 +53,7 @@ class ApiClient:
         return r
 
     def get_user(self, user_id):
-        r = requests.get(self.uri + 'users' + '/' + user_id, auth=(self.username, self.password), headers={'Accept': 'application/json'})
+        r = self.__get('users' + '/' + user_id)
 
         return r
 
