@@ -8,7 +8,7 @@ class ApiClient:
         self.password = password
 
     def __get(self, resource):
-        r = requests.get(self.uri + '/' + resource, headers={'Accept': 'application/json'})
+        r = requests.get(self.uri + '/' + resource, auth=(self.username, self.password), headers={'Accept': 'application/json'})
 
         return r
 
@@ -67,7 +67,7 @@ class ApiClient:
         return r
 
     def get_roles(self):
-        r = requests.get(self.uri + 'roles', auth=(self.username, self.password), headers={'Accept': 'application/json'})
+        r = self.__get('roles') requests.get(self.uri + 'roles', auth=(self.username, self.password), headers={'Accept': 'application/json'})
 
         return r
 
