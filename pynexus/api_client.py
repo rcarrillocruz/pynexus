@@ -97,7 +97,7 @@ class ApiClient:
         return r
 
     def get_schedules(self):
-        r = requests.get(self.uri + 'schedules', auth=(self.username, self.password), headers={'Accept': 'application/json'})
+        r = self.__get('schedules')
 
         return r
 
