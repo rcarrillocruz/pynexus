@@ -7,8 +7,8 @@ class ApiClient:
         self.username = username
         self.password = password
 
-    def __get(self, resource):
-        r = requests.get(self.uri + '/' + resource, auth=(self.username, self.password), headers={'Accept': 'application/json'})
+    def __get(self, resource, params=None):
+        r = requests.get(self.uri + '/' + resource, auth=(self.username, self.password), headers={'Accept': 'application/json'}, params=params)
 
         return r
 
