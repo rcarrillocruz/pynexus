@@ -3,14 +3,17 @@ import json
 
 class ApiClient:
     def __init__(self, host, username, password):
-        self.uri = host + '/nexus/service/local/'
+        self.uri = host + '/nexus/service/local'
         self.username = username
         self.password = password
 
-    def get_all_repositories(self):
-        r = requests.get(self.uri + 'all_repositories', headers={'Accept': 'application/json'})
+    def __get(self, resource):
+        r = requests.get(self.uri + '/' + resource, headers={'Accept': 'application/json'})
 
         return r
+
+    def get_all_repositories(self):
+        return self.__get('all_repositories')
 
     def get_user_repositories(self):
         r = requests.get(self.uri + 'repositories', headers={'Accept': 'application/json'})
