@@ -9,7 +9,7 @@ class NexusTest(unittest.TestCase):
 
     def test_constructor_appends_base(self):
         n = api_client.ApiClient('http://test.com', 'testuser', 'testpwd')
-        self.assertEquals(n.uri, 'http://test.com/nexus/service/local/')
+        self.assertEquals(n.uri, 'http://test.com/nexus/service/local')
         
     @patch.object(api_client.requests, 'get')    
     def test_get_users_return_list_with_just_anonymous_user(self, mock_get):
