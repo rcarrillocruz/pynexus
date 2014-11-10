@@ -72,7 +72,7 @@ class ApiClient:
         return r
 
     def get_role(self, role_id):
-        r = requests.get(self.uri + 'roles' + '/' + role_id, auth=(self.username, self.password), headers={'Accept': 'application/json'})
+        r = self.__get('roles' + '/' + role_id)
 
         return r
 
