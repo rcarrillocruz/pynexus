@@ -17,6 +17,11 @@ class ApiClient:
 
         return r
 
+    def __post(self, resource, params=None, data=None):
+        r = requests.post(self.uri + '/' + resource, auth=(self.username, self.password), headers={'Accept': 'application/json', 'Content-Type': 'application/json'}, params=params, data=data)
+        
+        return r
+
     def get_all_repositories(self):
         return self.__get('all_repositories')
 
