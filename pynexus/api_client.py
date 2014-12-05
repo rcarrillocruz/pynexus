@@ -41,9 +41,8 @@ class ApiClient:
                             'providerRole':'org.sonatype.nexus.proxy.repository.Repository',
                             'downloadRemoteIndexes': False,'checksumPolicy': 'IGNORE'}}
         
-        r = requests.post(self.uri + 'repositories', auth=(self.username, self.password), headers={'Accept': 'application/json', 'Content-Type': 'application/json'}, 
-                          data=json.dumps(payload))
-
+        r = self.__post('repositories', data=json.dumps(payload))
+        
         return r 
 
     def get_status(self):
