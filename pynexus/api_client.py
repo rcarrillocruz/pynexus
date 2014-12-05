@@ -108,7 +108,7 @@ class ApiClient:
 
     def get_artifact_pom(self, group_id, artifact_id, version, repository):
         params = {'g': group_id, 'a': artifact_id, 'v': version, 'r': repository}
-        r = requests.get(self.uri + 'artifact/maven', headers={'Accept': 'application/json'}, params=params)
+        r = self.__get('artifact/maven', params)
 
         return r
 
