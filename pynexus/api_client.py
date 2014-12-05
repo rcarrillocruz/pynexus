@@ -43,7 +43,7 @@ class ApiClient:
 
     # TODO this will probably haunt me at some point, not sure if Nexux expects boolean values as strings or not
     def get_repository_statuses(self, forceCheck=False):
-        r = requests.get(self.uri + 'repository_statuses', headers={'Accept': 'application/json'}, params={'forceCheck': forceCheck})
+        r =  self.__get('repository_statuses', params={'forceCheck': forceCheck})
 
         return r
 
