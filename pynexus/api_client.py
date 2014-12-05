@@ -12,6 +12,11 @@ class ApiClient:
 
         return r
 
+    def __delete(self, resource, params=None):
+        r = requests.delete(self.uri + '/' + resource, auth=(self.username, self.password), headers={'Accept': 'application/json'}, params=params)
+
+        return r
+
     def get_all_repositories(self):
         return self.__get('all_repositories')
 
