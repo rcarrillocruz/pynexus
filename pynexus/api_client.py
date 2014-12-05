@@ -118,7 +118,8 @@ class ApiClient:
         return r
 
     def rebuild_group_metadata(self, group_id, path=''):
-        r = requests.delete(self.uri + 'metadata/repo_groups/' + group_id + '/content/' + path, auth=(self.username, self.password), headers={'Accept': 'application/json'})
+        r = self.__delete('metadata/repo_groups/' + group_id + '/content/' + path)
+        #r = requests.delete(self.uri + 'metadata/repo_groups/' + group_id + '/content/' + path, auth=(self.username, self.password), headers={'Accept': 'application/json'})
 
         return r
 
